@@ -1,0 +1,52 @@
+---
+title: "Peer Review"
+author: "Thomas Barker, Phoebe Ducote, Ebenezer Teshome, Alexander Du"
+date: "November 23, 2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction and Data
+### Is the research question and goal of the report clearly stated?
+Yes, the research question is clear. It’s easy to tell that the purpose of the report is to look at the racial makeup of Texas public schools and their student to teacher ratios, with the ultimate goal of determining if minority students in Texas public schools have equal educational opportunities.
+
+### Does the introduction provide appropriate background context and motivation for a general reader?
+Yes, the intro helps set up the research question by describing how smaller class sizes can improve education, especially for minorities. The intro also helps explain that despite not being able to find data specifically on class size, they are using a comparable variable--student to teacher ratio--to carry out the analysis.
+
+### Is the source of the data stated with an appropriate citation? Is it clear when and how the data was collected?*
+In the intro, it is clearly explained where the data comes from (the National Center for Education Statistics), a link to the data is provided, and it is explained that the data was collected for the 2017-18 school year from state officials.
+
+### Is data manipulation described clearly (missing data, creation of new variables, etc)?*
+Yes, there is a clear section labeled “Data cleaning” in which the group describes how they manipulated variables like ‘STUTERATIO’, which they kept between 0 and 99 in order to remove outliers. Additionally, they describe how they excluded pre-k and secondary school because there were not as many data points for those categories.
+
+### Are the cases and relevant variables described?*
+Yes. We really appreciated how the report displays the relevant variables by explicitly listing the names of each useful variable along with a short description.
+
+## Methodology
+Note: Since you didn’t have the knitted pdf of your report, we couldn’t really look at the visualizations outside of their code.
+
+### Stated Research Question
+What is the relationship between the racial makeup and student-teacher ratio at Texas public schools? Our *hypothesis* is the following: Texas public schools with a greater proportion of minority students are more likely to have higher student-teacher ratios.
+
+### Visualizations
+All visualizations relate to the research question, and all appear to follow conventions established by STA 199, including appropriate titles, subtitles, and labels.  The only visualization we were unsure about was the one that facets by STR.  Since STR is a direct mutation of STUTERATIO, we would expect the two variables to be directly related to each other.
+
+## Results
+### Are the chosen techniques for answering the research question appropriate for the research context and type of data?
+The chosen techniques for answering the research question are appropriate for the research context and type of data.  The one-variable linear regression is an appropriate choice when determining how minority percentage affects student-teacher ratio.  In addition, we believe that a confidence interval or hypothesis test for the difference in mean student-teacher ratio between schools with low and high minority percentages would be a helpful addition to the report.
+
+### Is the research question answered effectively?
+Yes, their presumed results answer the research question effectively through the use of different techniques that help reach a well-rounded conclusion.
+
+## Discussion
+### Is the answer to the research question summarized and supported by statistical arguments?*
+The discussion clearly summarises the research question and presumed conclusion.  However, since the results were incomplete, the research question is not currently supported by statistical arguments.
+
+### Are limitations of the analysis clearly outlined?
+The discussion of limitations was also incomplete but an outline was provided.  We appreciated the distinction between class size and student-teacher ratio, and agreed that the potential for school administrators to skew a student-teacher ratio is very important to highlight.  We would disagree that limiting the student-teacher ratio to 100 is a limitation, since it was done to remove outliers and improve the quality of the conclusions.
+
+## General
+The writing in this report is clear and polished and the code is well-formatted.  In addition, we appreciated the clear organization, aided by the use of headers and helpful bolding.  The team has appropriately outlined the sections of the report that are still incomplete.  We were not able to reproduce the process and the visualizations, since a knitted pdf was not provided.  Nonetheless, the code appears to follow reproducibility standards.  Once the statistical tests and discussion is completed, this will make for a very interesting and well-polished report.

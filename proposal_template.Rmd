@@ -1,0 +1,65 @@
+---
+title: "Project Proposal"
+subtitle: "due October 15, 2021 by 11:59 PM "
+author: "Thomas Barker, Phoebe Ducote, Ebenezer Teshome, Alexander Du"
+date: "October 8 2021"
+output: pdf_document
+---
+
+# Load Packages
+
+```{r load-packages, message = FALSE, warning = FALSE}
+library(tidyverse) 
+``` 
+
+# Load Data
+```{r load-data, message = F}
+ceodepartures <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-04-27/departures.csv')
+nyc_squirrels <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-29/nyc_squirrels.csv")
+athletes <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-08-03/athletes.csv')
+nhl <- readr::read_csv('https://projects.fivethirtyeight.com/nhl-api/nhl_elo.csv')
+```
+
+```{r}
+nhl_new <- nhl %>%
+  filter(season > 2014 & season < 2022 & status == "post")
+
+hurricanes <- nhl_new %>%
+  filter(home_team_abbr == "CAR" | away_team_abbr == "CAR")
+```
+
+
+# Introduction and Data
+CEO Departures https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-04-27/readme.md 
+-This dataset came from TidyTuesday, and the research was conducted by Richard J. Gentry, Joseph S. Harrison,Timothy J. Quigley, and Steven Boivie. In the research paper they claim to have researched CEO departures from 2000-2018, but the data set has entries beginning in 1987 and ending in 2020, so the original data (which they got from Execucomp, a Wharton database which collects data on top CEOs and companies), must have begun being collected in 1987. Each case is a single CEO departure/CEO. Relevant variables include the company name, the CEOs name, a code number for the reason of departure, the year of the event which caused the departure, the year and date they actually departed, and how many times they served as CEO. 
+
+NYC Squirrel Census:
+-This dataset came from TidyTuesday, by way of the Squirrel Census. The Squirrel Census is an organization that tracks Eastern gray squirrels, and used volunteers in (for this data set) New York City to count and observe squirrels. This data was originally collected in October of 2018. Each case represents a single squirrel. Some of the variables are the unique squirrel id, "hectare" (which describes the location on a grid map of Central Park), the date they were observed, and serveral variables like "running", "climbing", and "eating" to describe the squirrell's actions.
+
+Paralympics https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-03/readme.md
+-The data came from TidyTuesday, which was sourced from the International Paralympic Committee. It was webscraped and details data from 1980 - 2016. Each datapoint represents a given athlete in the Paralympics. Relevant variables include the gender, name, and type of medal that an athlete received in a specific event. If the athlete was vision-impaired, the guides and pilots were noted as well. And of course, each athlete was also accompanied by their country, its abbreviation, and the year of the Paralympics. It was originally collected to be utilized for an article published around August 2021.
+
+
+NHL https://github.com/fivethirtyeight/data/tree/master/nhl-forecasts
+-This data came from fivethirtyeight, by way of hockey-reference.com, a site that has compiled stats for every hockey game since the 1917-1918 NHL season. Fivethirtyeight has an elo ranking system that serves as power rankings for each team during each hockey game, which is represented in the data set. Each case is a single hockey game, and some variables of note are 'season' (the year of the season), 'status' (which indicates if the game has already been played or not), 'home_team', 'away_team', 'home_team_pregame_rating' (the home team's elo ranking before a game), 'away_team_pregame_rating', 'home_team_score' (the number of goals scored by the home team), 'away_team_score', 'home_team_postgame_rating', and 'away_team_postgame_rating'. 
+**This could also be narrowed down to, say, just the Carolina Hurricanes data between the 2015 and 2021 seasons.**
+
+# Research Questions
+-Does the reason for CEO departure differ significantly among different S&P 1500 companies and does it differ significantly by year of departure as well?
+
+-Does the proportion of squirrels seen eating differ significantly among juvenile and adult squirrels?
+
+-In any given year, how does the type of medal countries receive compare across all events?
+
+-What factors (home/away, win, goals scored, etc.) seem to affect a team's elo rating the most, and what is the relationship between a team's elo and their win probability?
+  -Hypotheses: Teams that win, score more goals, and are the away team will see a higher increase in elo, and there will be a positive relationship between a team's elo and win probability.
+# Glimpse
+
+Please use `glimpse` for your datasets here.
+```{r glimpse datasets}
+glimpse(ceodepartures)
+glimpse(nyc_squirrels)
+glimpse(athletes)
+glimpse(nhl)
+```
+
